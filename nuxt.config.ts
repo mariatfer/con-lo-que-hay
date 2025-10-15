@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import i18nConfig from './config/i18n'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -9,5 +11,14 @@ export default defineNuxtConfig({
     '@nuxt/test-utils',
     '@nuxt/scripts',
     '@nuxt/ui',
+    '@nuxtjs/i18n',
   ],
+  i18n: {
+    ...i18nConfig,
+    detectBrowserLanguage: {
+      useCookie: true,
+      fallbackLocale: 'es',
+      redirectOn: 'root',
+    },
+  },
 })
