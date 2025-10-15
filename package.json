@@ -1,0 +1,50 @@
+{
+  "name": "con-lo-que-hay",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@googlemaps/markerclusterer": "^2.6.2",
+    "@nuxt/eslint": "^1.9.0",
+    "@nuxt/image": "^1.11.0",
+    "@nuxt/scripts": "^0.12.2",
+    "@nuxt/test-utils": "^3.19.2",
+    "@nuxt/ui": "^4.0.1",
+    "@unhead/vue": "^2.0.19",
+    "eslint": "^9.37.0",
+    "nuxt": "^4.1.3",
+    "typescript": "^5.9.3",
+    "vue": "^3.5.22",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.4",
+    "postcss-html": "^1.8.0",
+    "prettier": "^3.6.2",
+    "stylelint": "^16.25.0",
+    "stylelint-config-recommended-vue": "^1.6.1",
+    "stylelint-config-standard": "^39.0.1",
+    "stylelint-scss": "^6.12.1"
+  },
+  "lint-staged": {
+    "**/*.{ts,js}": "eslint --fix",
+    "**/*.vue": [
+      "eslint --fix",
+      "stylelint --fix"
+    ],
+    "**/*.{css,scss}": "stylelint --fix",
+    "**/*.json": "prettier --write"
+  }
+}
