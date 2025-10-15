@@ -1,0 +1,38 @@
+:root {
+  --c-black: #000000;
+  --c-semi-black: #0d0d0d;
+  --c-primary: #FF9900;
+  --c-light-yellow: #FFC164;
+  --c-dark-yellow: #C86B1E;
+  --c-secondary: #00AA72;
+  --c-light-green: #4BBF99;
+  --c-dark-green: #006745;
+  --c-blue: #2419B2;
+  --c-dark-blue: #120B6C;
+  --c-white: #ffffff;
+  --c-dark-brown: #333333;
+
+  --f-font-title: 'Sacramento';
+  --f-font-text: 'IBM Plex Sans';
+  --f-font-highlight: 'Poppins';
+
+  --t-transition: 0.3s;
+  
+  --s-border-radius: 0.4375rem;
+  
+  --s-font-h1: 3.5rem;
+  --s-font-h1-mobile: 2.5rem;
+  --s-font-h2: 3rem;
+  --s-font-h2-mobile: 2rem;
+  --s-font-h3: 2rem;
+  --s-font-h3-mobile: 1.5rem;
+  --s-font-h4: 1.5rem;
+  --s-font-h4-mobile: 1.3125rem;
+  --s-font-p: 1.125rem;
+  --s-font-cta: 1rem;
+  --s-font-small: 0.875rem;
+  --s-margin: 7rem;
+  --s-margin-mobile: 3rem;
+  --s-padding: 7rem;
+  --s-padding-mobile: 1.5rem;
+}
