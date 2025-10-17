@@ -1,25 +1,21 @@
 :root {
   --c-black: #000000;
   --c-semi-black: #0d0d0d;
-  --c-primary: #FF9900;
-  --c-light-yellow: #FFC164;
-  --c-dark-yellow: #C86B1E;
-  --c-secondary: #00AA72;
-  --c-light-green: #4BBF99;
-  --c-dark-green: #006745;
-  --c-blue: #2419B2;
-  --c-dark-blue: #120B6C;
+  --c-secondary: #A3B18A;
+  --c-primary: #8E260E;
+  --c-light-terracotta: #CE664D;
+  --c-dark-terracotta: #3F0C00;
   --c-white: #ffffff;
-  --c-dark-brown: #333333;
+  --c-dark-brown: #292929;
+  --c-background: #E4E4ED;
 
-  --f-font-title: 'Sacramento';
-  --f-font-text: 'IBM Plex Sans';
-  --f-font-highlight: 'Poppins';
+  --f-font-title: 'Homemade Apple', cursive;
+  --f-font-text: 'Roboto Serif Variable', serif;
 
   --t-transition: 0.3s;
-  
+
   --s-border-radius: 0.4375rem;
-  
+
   --s-font-h1: 3.5rem;
   --s-font-h1-mobile: 2.5rem;
   --s-font-h2: 3rem;

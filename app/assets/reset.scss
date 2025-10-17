@@ -18,8 +18,38 @@ body {
   max-width: 120rem;
   margin: auto;
   font-family: var(--f-font-text);
-  color: var(--c-black);
+  color: var(--c-primary);
   font-size: 100%;
+  background:
+    radial-gradient(
+        27% 29% at right,
+        #0000 83%,
+        color-mix(in srgb, var(--c-light-terracotta) 20%, transparent) 85% 99%,
+        #0000 101%
+      )
+      calc(0.75rem / 2) 0.75rem,
+    radial-gradient(
+        27% 29% at left,
+        #0000 83%,
+        color-mix(in srgb, var(--c-light-terracotta) 20%, transparent) 85% 99%,
+        #0000 101%
+      )
+      calc(0.75rem / -2) 0.75rem,
+    radial-gradient(
+        29% 27% at top,
+        #0000 83%,
+        color-mix(in srgb, var(--c-light-terracotta) 20%, transparent) 85% 99%,
+        #0000 101%
+      )
+      0 calc(0.75rem / 2),
+    radial-gradient(
+        29% 27% at bottom,
+        #0000 83%,
+        color-mix(in srgb, var(--c-light-terracotta) 20%, transparent) 85% 99%,
+        #0000 101%
+      )
+      0 calc(0.75rem / -2) var(--c-background);
+  background-size: 1.5rem 1.5rem;
 }
 
 img,
