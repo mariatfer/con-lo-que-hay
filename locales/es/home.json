@@ -1,1 +1,218 @@
-{}
+{
+  "title": "Cuéntanos qué tienes en la cocina",
+  "textArea": {
+    "id": 4,
+    "name": "message",
+    "label": "¿Qué te apetece comer?",
+    "ariaLabel": "Describe lo que te apetece comer",
+    "placeholder": "Cuéntanos qué te gustaría comer hoy. ¿Qué estilo te apetece? ¿Hay algo que no puedas tomar o que prefieras evitar?",
+    "disabled": false,
+    "required": false
+  },
+  "checkBox": [
+    {
+      "id": 1,
+      "title": "Vegetales",
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "zanahoria",
+          "label": "Zanahoria",
+          "ariaLabel": "Vegetal: Zanahoria",
+          "disabled": false
+        },
+        {
+          "id": 2,
+          "name": "cebolla",
+          "label": "Cebolla",
+          "ariaLabel": "Vegetal: Cebolla",
+          "disabled": false
+        },
+        {
+          "id": 3,
+          "name": "ajo",
+          "label": "Ajo",
+          "ariaLabel": "Vegetal: Ajo",
+          "disabled": false
+        },
+        {
+          "id": 4,
+          "name": "tomate",
+          "label": "Tomate",
+          "ariaLabel": "Vegetal: Tomate",
+          "disabled": false
+        },
+        {
+          "id": 5,
+          "name": "pimiento",
+          "label": "Pimiento",
+          "ariaLabel": "Vegetal: Pimiento",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Proteínas",
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "pollo",
+          "label": "Pollo",
+          "ariaLabel": "Proteína: Pollo",
+          "disabled": false
+        },
+        {
+          "id": 2,
+          "name": "huevo",
+          "label": "Huevo",
+          "ariaLabel": "Proteína: Huevo",
+          "disabled": false
+        },
+        {
+          "id": 3,
+          "name": "carne",
+          "label": "Carne",
+          "ariaLabel": "Proteína: Carne",
+          "disabled": false
+        },
+        {
+          "id": 4,
+          "name": "atún",
+          "label": "Atún",
+          "ariaLabel": "Proteína: Atún",
+          "disabled": false
+        },
+        {
+          "id": 5,
+          "name": "lentejas",
+          "label": "Lentejas",
+          "ariaLabel": "Proteína: Lentejas",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Carbohidratos",
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "pan",
+          "label": "Pan",
+          "ariaLabel": "Carbohidrato: Pan",
+          "disabled": false
+        },
+        {
+          "id": 2,
+          "name": "arroz",
+          "label": "Arroz",
+          "ariaLabel": "Carbohidrato: Arroz",
+          "disabled": false
+        },
+        {
+          "id": 3,
+          "name": "pasta",
+          "label": "Pasta",
+          "ariaLabel": "Carbohidrato: Pasta",
+          "disabled": false
+        },
+        {
+          "id": 4,
+          "name": "patata",
+          "label": "Patata",
+          "ariaLabel": "Carbohidrato: Patata",
+          "disabled": false
+        },
+        {
+          "id": 5,
+          "name": "harina",
+          "label": "Harina",
+          "ariaLabel": "Carbohidrato: Harina",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Condimentos",
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "aceite",
+          "label": "Aceite",
+          "ariaLabel": "Condimento: Aceite",
+          "disabled": false
+        },
+        {
+          "id": 2,
+          "name": "vinagre",
+          "label": "Vinagre",
+          "ariaLabel": "Condimento: Vinagre",
+          "disabled": false
+        },
+        {
+          "id": 3,
+          "name": "sal",
+          "label": "Sal",
+          "ariaLabel": "Condimento: Sal",
+          "disabled": false
+        },
+        {
+          "id": 4,
+          "name": "pimienta",
+          "label": "Pimienta",
+          "ariaLabel": "Condimento: Pimienta",
+          "disabled": false
+        },
+        {
+          "id": 5,
+          "name": "curry",
+          "label": "Curry",
+          "ariaLabel": "Condimento: Curry",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Bases esenciales",
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "leche",
+          "label": "Leche",
+          "ariaLabel": "Base líquida: Leche",
+          "disabled": false
+        },
+        {
+          "id": 2,
+          "name": "agua",
+          "label": "Agua",
+          "ariaLabel": "Base líquida: Agua",
+          "disabled": false
+        },
+        {
+          "id": 3,
+          "name": "caldo",
+          "label": "Caldo",
+          "ariaLabel": "Base líquida: Caldo",
+          "disabled": false
+        },
+        {
+          "id": 4,
+          "name": "nata",
+          "label": "Nata",
+          "ariaLabel": "Base líquida: Nata",
+          "disabled": false
+        }
+      ]
+    }
+  ],
+  "prompt": {
+    "has": "Tengo",
+    "hasNot": "No tengo",
+    "message": "Me apetece algo así:"
+  },
+  "sendButton": "Pedir receta"
+}
