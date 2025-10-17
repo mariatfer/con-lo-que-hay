@@ -48,6 +48,27 @@
           "label": "Pimiento",
           "ariaLabel": "Vegetal: Pimiento",
           "disabled": false
+        },
+        {
+          "id": 6,
+          "name": "espinacas",
+          "label": "Espinacas",
+          "ariaLabel": "Vegetal: Espinacas",
+          "disabled": false
+        },
+        {
+          "id": 7,
+          "name": "calabacín",
+          "label": "Calabacín",
+          "ariaLabel": "Vegetal: Calabacín",
+          "disabled": false
+        },
+        {
+          "id": 8,
+          "name": "berenjena",
+          "label": "Berenjena",
+          "ariaLabel": "Vegetal: Berenjena",
+          "disabled": false
         }
       ]
     },
@@ -88,6 +109,27 @@
           "name": "lentejas",
           "label": "Lentejas",
           "ariaLabel": "Proteína: Lentejas",
+          "disabled": false
+        },
+        {
+          "id": 6,
+          "name": "tofu",
+          "label": "Tofu",
+          "ariaLabel": "Proteína: Tofu",
+          "disabled": false
+        },
+        {
+          "id": 7,
+          "name": "garbanzos",
+          "label": "Garbanzos",
+          "ariaLabel": "Proteína: Garbanzos",
+          "disabled": false
+        },
+        {
+          "id": 8,
+          "name": "queso",
+          "label": "Queso",
+          "ariaLabel": "Proteína: Queso",
           "disabled": false
         }
       ]
@@ -130,6 +172,27 @@
           "label": "Harina",
           "ariaLabel": "Carbohidrato: Harina",
           "disabled": false
+        },
+        {
+          "id": 6,
+          "name": "yuca",
+          "label": "Yuca",
+          "ariaLabel": "Carbohidrato: Yuca",
+          "disabled": false
+        },
+        {
+          "id": 7,
+          "name": "maíz",
+          "label": "Maíz",
+          "ariaLabel": "Carbohidrato: Maíz",
+          "disabled": false
+        },
+        {
+          "id": 8,
+          "name": "quinoa",
+          "label": "Quinoa",
+          "ariaLabel": "Carbohidrato: Quinoa",
+          "disabled": false
         }
       ]
     },
@@ -171,6 +234,34 @@
           "label": "Curry",
           "ariaLabel": "Condimento: Curry",
           "disabled": false
+        },
+        {
+          "id": 6,
+          "name": "orégano",
+          "label": "Orégano",
+          "ariaLabel": "Condimento: Orégano",
+          "disabled": false
+        },
+        {
+          "id": 7,
+          "name": "albahaca",
+          "label": "Albahaca",
+          "ariaLabel": "Condimento: Albahaca",
+          "disabled": false
+        },
+        {
+          "id": 8,
+          "name": "comino",
+          "label": "Comino",
+          "ariaLabel": "Condimento: Comino",
+          "disabled": false
+        },
+        {
+          "id": 9,
+          "name": "azúcar",
+          "label": "Azúcar",
+          "ariaLabel": "Condimento: Azúcar",
+          "disabled": false
         }
       ]
     },
@@ -205,6 +296,76 @@
           "label": "Nata",
           "ariaLabel": "Base líquida: Nata",
           "disabled": false
+        },
+        {
+          "id": 5,
+          "name": "yogur",
+          "label": "Yogur",
+          "ariaLabel": "Base líquida: Yogur",
+          "disabled": false
+        },
+        {
+          "id": 6,
+          "name": "salsa de soja",
+          "label": "Salsa de soja",
+          "ariaLabel": "Base líquida: Salsa de soja",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Alergias",
+      "type": "allergy",
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "gluten",
+          "label": "Gluten",
+          "ariaLabel": "Alérgeno: Gluten",
+          "disabled": false
+        },
+        {
+          "id": 2,
+          "name": "lactosa",
+          "label": "Lactosa",
+          "ariaLabel": "Alérgeno: Lactosa",
+          "disabled": false
+        },
+        {
+          "id": 3,
+          "name": "huevo",
+          "label": "Huevo",
+          "ariaLabel": "Alérgeno: Huevo",
+          "disabled": false
+        },
+        {
+          "id": 4,
+          "name": "frutos secos",
+          "label": "Frutos secos",
+          "ariaLabel": "Alérgeno: Frutos secos",
+          "disabled": false
+        },
+        {
+          "id": 5,
+          "name": "marisco",
+          "label": "Marisco",
+          "ariaLabel": "Alérgeno: Marisco",
+          "disabled": false
+        },
+        {
+          "id": 6,
+          "name": "soja",
+          "label": "Soja",
+          "ariaLabel": "Alérgeno: Soja",
+          "disabled": false
+        },
+        {
+          "id": 7,
+          "name": "sésamo",
+          "label": "Sésamo",
+          "ariaLabel": "Alérgeno: Sésamo",
+          "disabled": false
         }
       ]
     }
@@ -212,7 +373,11 @@
   "prompt": {
     "has": "Tengo",
     "hasNot": "No tengo",
-    "message": "Me apetece algo así:"
+    "message": "Me apetece algo así:",
+    "allergies": "Evita ingredientes que causan alergia:",
+    "loading": "Estamos preparando tu receta.",
+    "error": "Error al generar la receta.",
+    "validation": "Por favor, selecciona al menos un ingrediente o escribe algo."
   },
   "sendButton": "Pedir receta"
 }
