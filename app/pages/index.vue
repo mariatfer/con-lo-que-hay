@@ -39,7 +39,7 @@ function handleSubmit() {
   console.log('No tiene:', hasNot)
   console.log('Mensaje:', message.value)
 
-  const prompt = `${homeLocales.prompt.has} ${has.join(', ')}.\n${homeLocales.prompt.hasNot} ${hasNot.join(', ')}.\n${homeLocales.prompt.message} ${message.value}`
+  const prompt = `${homeLocales.prompt.has} ${has.join(', ')}.\n${homeLocales.prompt.hasNot} ${hasNot.join(', ')}.\n${message.value ? homeLocales.prompt.message : ''} ${message.value}`
   console.log('Prompt para la IA:', prompt)
 }
 </script>
@@ -67,7 +67,7 @@ function handleSubmit() {
         </article>
       </div>
       <UiFormTheTextarea v-bind="homeLocales.textArea" v-model="message" />
-      <button type="submit" class="home__button">{{ homeLocales.sendButton }}</button>
+      <UiMainButton type="submit">{{ homeLocales.sendButton }}</UiMainButton>
     </form>
   </div>
 </template>
@@ -100,31 +100,6 @@ function handleSubmit() {
 
   &__ingredients {
     @include flex($wrap: wrap, $gap: 2rem);
-  }
-
-  &__button {
-    background-color: var(--c-background);
-    color: var(--c-dark-brown);
-    border: 0.125rem solid var(--c-dark-brown);
-    padding: 0.5rem 1.25rem;
-    font-size: var(--s-font-p);
-    font-weight: 500;
-    border-radius: var(--s-border-radius);
-    cursor: pointer;
-    transition: var(--t-transition);
-    @include box-shadow(0, 0.125rem, 0.25rem);
-
-    &:hover {
-      background-color: var(--c-dark-brown);
-      color: var(--c-background);
-      @include box-shadow(0, 0.25rem, 0.5rem, $color: rgba(0, 0, 0, 0.2));
-      transform: translateY(-0.0625rem);
-    }
-
-    &:active {
-      transform: translateY(0);
-      @include box-shadow(0, 0.125rem, 0.25rem, $color: rgba(0, 0, 0, 0.2), $inset: true);
-    }
   }
 }
 </style>
