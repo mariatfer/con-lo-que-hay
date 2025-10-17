@@ -34,3 +34,80 @@
   -webkit-box-shadow: $shadow1, $shadow2;
   -moz-box-shadow: $shadow1, $shadow2;
 }
+@mixin markdown() {
+  &:deep(h2:first-child) {
+    margin: 1rem 0;
+  }
+
+  &:deep(h2) {
+    margin: 2.5rem 0 1rem 0;
+    font-weight: 600;
+    font-size: var(--s-font-h3);
+    @include responsive() {
+      font-size: var(--s-font-h3-mobile);
+    }
+  }
+
+  &:deep(h3) {
+    margin: 2rem 0 1rem 0;
+    font-size: var(--s-font-h4);
+    font-weight: 600;
+    @include responsive() {
+      font-size: var(--s-font-h4-mobile);
+    }
+  }
+
+  &:deep(p) {
+    margin: 1.5rem 0 1rem 0;
+  }
+
+  &:deep(ul),
+  &:deep(ol) {
+    padding: 0 0 0 2rem;
+  }
+
+  &:deep(li) {
+    list-style: disc;
+    margin: 0 0 0.4rem 0;
+  }
+
+  &:deep(a) {
+    color: var(--c-dark-blue);
+    font-weight: 500;
+    will-change: transform;
+    transition: var(--t-transition);
+  }
+
+  &:deep(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &:deep(th) {
+    background-color: var(--c-light-green);
+    color: var(--c-black);
+    vertical-align: middle;
+    border: 0.0625rem solid var(--c-dark-green);
+    padding: 1em;
+    @include responsive() {
+      padding: 0.5em;
+    }
+  }
+
+  &:deep(td) {
+    border: 0.0625rem solid var(--c-dark-green);
+    padding: 1em;
+    @include responsive() {
+      padding: 0.5em;
+    }
+  }
+
+  &:deep(code) {
+    background-color: var(--c-light-graphite);
+    padding: 0.2rem;
+    border-radius: 0.25rem;
+  }
+}

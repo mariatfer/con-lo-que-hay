@@ -12,7 +12,7 @@ withDefaults(
 </script>
 
 <template>
-  <button type="submit" class="main-button"><slot></slot></button>
+  <button type="submit" :disabled="disabled" class="main-button"><slot /></button>
 </template>
 
 <style lang="scss" scoped>
@@ -38,6 +38,12 @@ withDefaults(
   &:active {
     transform: translateY(0);
     @include box-shadow(0, 0.125rem, 0.25rem, $color: rgba(0, 0, 0, 0.2), $inset: true);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: not-allowed;
   }
 }
 </style>

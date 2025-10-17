@@ -13,6 +13,7 @@ export interface BaseField {
 export interface Category {
   id: number
   title: string
+  type?: string
   ingredients: BaseField[]
 }
 
@@ -20,6 +21,10 @@ export interface Prompt {
   has: string
   hasNot: string
   message: string
+  allergies: string
+  loading: string
+  error: string
+  validation: string
 }
 
 export interface Home {

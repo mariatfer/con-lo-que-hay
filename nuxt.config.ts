@@ -13,7 +13,12 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxtjs/i18n',
   ],
-  css: ['@/assets/variables.css', '@/assets/reset.scss', '@/assets/fonts.css'],
+  css: [
+    '@/assets/variables.css',
+    '@/assets/reset.scss',
+    '@/assets/fonts.css',
+    '@/assets/vueTransitions.css',
+  ],
   vite: {
     css: {
       preprocessorOptions: {
@@ -29,6 +34,11 @@ export default defineNuxtConfig({
       useCookie: true,
       fallbackLocale: 'es',
       redirectOn: 'root',
+    },
+  },
+  app: {
+    head: {
+      script: [{ src: 'https://js.puter.com/v2/', defer: true }],
     },
   },
 })
