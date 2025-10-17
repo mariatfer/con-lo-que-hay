@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxtjs/i18n',
   ],
-  css: ['@/assets/variables.css', '@/assets/reset.scss'],
+  css: ['@/assets/variables.css', '@/assets/reset.scss', '@/assets/fonts.css'],
   vite: {
     css: {
       preprocessorOptions: {
