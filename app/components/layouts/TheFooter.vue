@@ -1,14 +1,20 @@
 <script setup lang="ts">
 import type { Footer } from '@/interfaces/footer'
 
-const { data: footerLocales } = await useLocales<Footer>('footer')
+const { data: footerLocales } = useLocales<Footer>('footer')
 </script>
 
 <template>
-  <footer class="footer">
-    <p class="footer__paragraph">{{ footerLocales.thankYou }}</p>
-    <p class="footer__paragraph">{{ footerLocales.bestRecipes }}</p>
-    <p class="footer__paragraph">{{ footerLocales.copyright }}</p>
+  <footer v-if="footerLocales" class="footer">
+    <p v-if="footerLocales?.thankYou" class="footer__paragraph">
+      {{ footerLocales.thankYou }}
+    </p>
+    <p v-if="footerLocales?.bestRecipes" class="footer__paragraph">
+      {{ footerLocales.bestRecipes }}
+    </p>
+    <p v-if="footerLocales?.copyright" class="footer__paragraph">
+      {{ footerLocales.copyright }}
+    </p>
   </footer>
 </template>
 
