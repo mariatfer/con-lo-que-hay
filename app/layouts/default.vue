@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { useLanguageStore } from '@/stores/language'
+const { language } = storeToRefs(useLanguageStore())
 useHead({
   htmlAttrs: {
-    lang: 'es',
+    lang: language,
   },
 })
 </script>
@@ -13,6 +15,7 @@ useHead({
       <slot />
     </main>
     <LayoutsTheFooter />
+    <div ref="overlay" class="fade-overlay" />
   </div>
 </template>
 
