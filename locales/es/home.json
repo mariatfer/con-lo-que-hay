@@ -13,6 +13,7 @@
     {
       "id": 1,
       "title": "Vegetales",
+      "type": "vegetables",
       "ingredients": [
         {
           "id": 1,
@@ -75,6 +76,7 @@
     {
       "id": 2,
       "title": "Proteínas",
+      "type": "proteins",
       "ingredients": [
         {
           "id": 1,
@@ -137,6 +139,7 @@
     {
       "id": 3,
       "title": "Carbohidratos",
+      "type": "carbohydrates",
       "ingredients": [
         {
           "id": 1,
@@ -199,6 +202,7 @@
     {
       "id": 4,
       "title": "Condimentos",
+      "type": "condiments",
       "ingredients": [
         {
           "id": 1,
@@ -268,6 +272,7 @@
     {
       "id": 5,
       "title": "Bases esenciales",
+      "type": "essential",
       "ingredients": [
         {
           "id": 1,

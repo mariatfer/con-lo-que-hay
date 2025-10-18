@@ -1,0 +1,388 @@
+{
+  "title": "Tell us what you have in the kitchen",
+  "textArea": {
+    "id": 4,
+    "name": "message",
+    "label": "What would you like to eat?",
+    "ariaLabel": "Describe what you'd like to eat",
+    "placeholder": "Tell us what you'd like to eat today. What kind of style are you craving? Is there anything you can't have or prefer to avoid?",
+    "disabled": false,
+    "required": false
+  },
+  "checkBox": [
+    {
+      "id": 1,
+      "title": "Vegetables",
+      "type": "vegetables",
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "carrot",
+          "label": "Carrot",
+          "ariaLabel": "Vegetable: Carrot",
+          "disabled": false
+        },
+        {
+          "id": 2,
+          "name": "onion",
+          "label": "Onion",
+          "ariaLabel": "Vegetable: Onion",
+          "disabled": false
+        },
+        {
+          "id": 3,
+          "name": "garlic",
+          "label": "Garlic",
+          "ariaLabel": "Vegetable: Garlic",
+          "disabled": false
+        },
+        {
+          "id": 4,
+          "name": "tomato",
+          "label": "Tomato",
+          "ariaLabel": "Vegetable: Tomato",
+          "disabled": false
+        },
+        {
+          "id": 5,
+          "name": "pepper",
+          "label": "Pepper",
+          "ariaLabel": "Vegetable: Pepper",
+          "disabled": false
+        },
+        {
+          "id": 6,
+          "name": "spinach",
+          "label": "Spinach",
+          "ariaLabel": "Vegetable: Spinach",
+          "disabled": false
+        },
+        {
+          "id": 7,
+          "name": "zucchini",
+          "label": "Zucchini",
+          "ariaLabel": "Vegetable: Zucchini",
+          "disabled": false
+        },
+        {
+          "id": 8,
+          "name": "eggplant",
+          "label": "Eggplant",
+          "ariaLabel": "Vegetable: Eggplant",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Proteins",
+      "type": "proteins",
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "chicken",
+          "label": "Chicken",
+          "ariaLabel": "Protein: Chicken",
+          "disabled": false
+        },
+        {
+          "id": 2,
+          "name": "egg",
+          "label": "Egg",
+          "ariaLabel": "Protein: Egg",
+          "disabled": false
+        },
+        {
+          "id": 3,
+          "name": "meat",
+          "label": "Meat",
+          "ariaLabel": "Protein: Meat",
+          "disabled": false
+        },
+        {
+          "id": 4,
+          "name": "tuna",
+          "label": "Tuna",
+          "ariaLabel": "Protein: Tuna",
+          "disabled": false
+        },
+        {
+          "id": 5,
+          "name": "lentils",
+          "label": "Lentils",
+          "ariaLabel": "Protein: Lentils",
+          "disabled": false
+        },
+        {
+          "id": 6,
+          "name": "tofu",
+          "label": "Tofu",
+          "ariaLabel": "Protein: Tofu",
+          "disabled": false
+        },
+        {
+          "id": 7,
+          "name": "chickpeas",
+          "label": "Chickpeas",
+          "ariaLabel": "Protein: Chickpeas",
+          "disabled": false
+        },
+        {
+          "id": 8,
+          "name": "cheese",
+          "label": "Cheese",
+          "ariaLabel": "Protein: Cheese",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Carbohydrates",
+      "type": "carbohydrates",
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "bread",
+          "label": "Bread",
+          "ariaLabel": "Carbohydrate: Bread",
+          "disabled": false
+        },
+        {
+          "id": 2,
+          "name": "rice",
+          "label": "Rice",
+          "ariaLabel": "Carbohydrate: Rice",
+          "disabled": false
+        },
+        {
+          "id": 3,
+          "name": "pasta",
+          "label": "Pasta",
+          "ariaLabel": "Carbohydrate: Pasta",
+          "disabled": false
+        },
+        {
+          "id": 4,
+          "name": "potato",
+          "label": "Potato",
+          "ariaLabel": "Carbohydrate: Potato",
+          "disabled": false
+        },
+        {
+          "id": 5,
+          "name": "flour",
+          "label": "Flour",
+          "ariaLabel": "Carbohydrate: Flour",
+          "disabled": false
+        },
+        {
+          "id": 6,
+          "name": "cassava",
+          "label": "Cassava",
+          "ariaLabel": "Carbohydrate: Cassava",
+          "disabled": false
+        },
+        {
+          "id": 7,
+          "name": "corn",
+          "label": "Corn",
+          "ariaLabel": "Carbohydrate: Corn",
+          "disabled": false
+        },
+        {
+          "id": 8,
+          "name": "quinoa",
+          "label": "Quinoa",
+          "ariaLabel": "Carbohydrate: Quinoa",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Condiments",
+      "type": "condiments",
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "oil",
+          "label": "Oil",
+          "ariaLabel": "Condiment: Oil",
+          "disabled": false
+        },
+        {
+          "id": 2,
+          "name": "vinegar",
+          "label": "Vinegar",
+          "ariaLabel": "Condiment: Vinegar",
+          "disabled": false
+        },
+        {
+          "id": 3,
+          "name": "salt",
+          "label": "Salt",
+          "ariaLabel": "Condiment: Salt",
+          "disabled": false
+        },
+        {
+          "id": 4,
+          "name": "pepper",
+          "label": "Pepper",
+          "ariaLabel": "Condiment: Pepper",
+          "disabled": false
+        },
+        {
+          "id": 5,
+          "name": "curry",
+          "label": "Curry",
+          "ariaLabel": "Condiment: Curry",
+          "disabled": false
+        },
+        {
+          "id": 6,
+          "name": "oregano",
+          "label": "Oregano",
+          "ariaLabel": "Condiment: Oregano",
+          "disabled": false
+        },
+        {
+          "id": 7,
+          "name": "basil",
+          "label": "Basil",
+          "ariaLabel": "Condiment: Basil",
+          "disabled": false
+        },
+        {
+          "id": 8,
+          "name": "cumin",
+          "label": "Cumin",
+          "ariaLabel": "Condiment: Cumin",
+          "disabled": false
+        },
+        {
+          "id": 9,
+          "name": "sugar",
+          "label": "Sugar",
+          "ariaLabel": "Condiment: Sugar",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Essential Bases",
+      "type": "essential",
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "milk",
+          "label": "Milk",
+          "ariaLabel": "Liquid base: Milk",
+          "disabled": false
+        },
+        {
+          "id": 2,
+          "name": "water",
+          "label": "Water",
+          "ariaLabel": "Liquid base: Water",
+          "disabled": false
+        },
+        {
+          "id": 3,
+          "name": "broth",
+          "label": "Broth",
+          "ariaLabel": "Liquid base: Broth",
+          "disabled": false
+        },
+        {
+          "id": 4,
+          "name": "cream",
+          "label": "Cream",
+          "ariaLabel": "Liquid base: Cream",
+          "disabled": false
+        },
+        {
+          "id": 5,
+          "name": "yogurt",
+          "label": "Yogurt",
+          "ariaLabel": "Liquid base: Yogurt",
+          "disabled": false
+        },
+        {
+          "id": 6,
+          "name": "soy sauce",
+          "label": "Soy Sauce",
+          "ariaLabel": "Liquid base: Soy Sauce",
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Allergies",
+      "type": "allergy",
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "gluten",
+          "label": "Gluten",
+          "ariaLabel": "Allergen: Gluten",
+          "disabled": false
+        },
+        {
+          "id": 2,
+          "name": "lactose",
+          "label": "Lactose",
+          "ariaLabel": "Allergen: Lactose",
+          "disabled": false
+        },
+        {
+          "id": 3,
+          "name": "egg",
+          "label": "Egg",
+          "ariaLabel": "Allergen: Egg",
+          "disabled": false
+        },
+        {
+          "id": 4,
+          "name": "nuts",
+          "label": "Nuts",
+          "ariaLabel": "Allergen: Nuts",
+          "disabled": false
+        },
+        {
+          "id": 5,
+          "name": "seafood",
+          "label": "Seafood",
+          "ariaLabel": "Allergen: Seafood",
+          "disabled": false
+        },
+        {
+          "id": 6,
+          "name": "soy",
+          "label": "Soy",
+          "ariaLabel": "Allergen: Soy",
+          "disabled": false
+        },
+        {
+          "id": 7,
+          "name": "sesame",
+          "label": "Sesame",
+          "ariaLabel": "Allergen: Sesame",
+          "disabled": false
+        }
+      ]
+    }
+  ],
+  "prompt": {
+    "has": "I have",
+    "hasNot": "I don't have",
+    "message": "I'm craving something like this:",
+    "allergies": "Avoid ingredients that cause allergies:",
+    "loading": "We're preparing your recipe.",
+    "error": "Error generating the recipe.",
+    "validation": "Please select at least one ingredient or write something."
+  },
+  "sendButton": "Request recipe"
+}
