@@ -1,32 +1,45 @@
 <script setup lang="ts">
 import type { BaseField, Home } from '@/interfaces/home'
+import type { IngredientCategoryType } from '~/types/home'
 
-const { data: homeLocales } = await useLocales<Home>('home')
+const { data: homeLocales } = useLocales<Home>('home')
 
 const message = ref('')
 const selectedIngredients = ref<Set<string>>(new Set())
-const ingredientCategories = homeLocales.checkBox.map((category) => ({
-  id: category.id,
-  title: category.title,
-  type: category.type,
-  ingredients: (category.ingredients as BaseField[]).sort((a, b) =>
-    a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }),
-  ),
-}))
-function toggleIngredient(name: string, checked?: boolean) {
+const ingredientCategories = computed(() => {
+  const categories = homeLocales.value?.checkBox ?? []
+  return categories.map((category) => ({
+    id: category.id,
+    title: category.title,
+    type: category.type as IngredientCategoryType,
+    ingredients: (category.ingredients as BaseField[]).sort((a, b) =>
+      a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }),
+    ),
+  }))
+})
+
+const hasCategories = computed(() => ingredientCategories.value.length > 0)
+
+function getIngredientKey(type: IngredientCategoryType, name: string): string {
+  return `${type}:${name}`
+}
+
+function toggleIngredient(type: IngredientCategoryType, name: string, checked?: boolean) {
+  const key = getIngredientKey(type, name)
   if (checked) {
-    selectedIngredients.value.add(name)
+    selectedIngredients.value.add(key)
   } else {
-    selectedIngredients.value.delete(name)
+    selectedIngredients.value.delete(key)
   }
 }
+
 function getIngredientSummary() {
-  const allNames = ingredientCategories.flatMap((category) =>
-    category.ingredients.map((item) => item.name),
+  const allKeys = ingredientCategories.value.flatMap((category) =>
+    category.ingredients.map((item) => getIngredientKey(category.type, item.name)),
   )
 
-  const has = allNames.filter((name) => selectedIngredients.value.has(name))
-  const hasNot = allNames.filter((name) => !selectedIngredients.value.has(name))
+  const has = Array.from(selectedIngredients.value)
+  const hasNot = allKeys.filter((key) => !selectedIngredients.value.has(key))
 
   return {
     has,
@@ -34,59 +47,34 @@ function getIngredientSummary() {
   }
 }
 
-const recipe = ref('')
-const loading = ref(false)
-const error = ref(false)
+const { generateRecipe, htmlRecipe, loading, error } = useAiRecipe()
 
-const { parseMarkdown } = useSanitizedMarkdown()
-const htmlRecipe = ref('')
-
-async function generateRecipe() {
-  const hasMessage = message.value.trim().length > 0
-  const hasSelection = selectedIngredients.value.size > 0
-
-  if (!hasMessage && !hasSelection) {
-    htmlRecipe.value = homeLocales.prompt.validation
-    error.value = true
-    return
-  }
-
-  loading.value = true
-  htmlRecipe.value = homeLocales.prompt.loading
-
+async function handleSubmit() {
   const { has, hasNot } = getIngredientSummary()
-
-  const allergyCategory = ingredientCategories.find((cat) => cat.type === 'allergy')
-
+  const allergyCategory = ingredientCategories.value.find((cat) => cat.type === 'allergy')
   const allergies = allergyCategory
     ? allergyCategory.ingredients
-        .filter((item) => selectedIngredients.value.has(item.name))
+        .filter((item) =>
+          selectedIngredients.value.has(getIngredientKey('allergy', item.name)),
+        )
         .map((item) => item.name)
     : []
 
-  const prompt = `${homeLocales.prompt.has} ${has.join(', ')}.\n${homeLocales.prompt.hasNot} ${hasNot.join(', ')}.\n${
-    allergies.length ? homeLocales.prompt.allergies : ''
-  } ${allergies.join(', ')}.\n${hasMessage ? homeLocales.prompt.message : ''} ${message.value}`
-
-  try {
-    const response = await window.puter.ai.chat(prompt)
-    recipe.value = response.message.content
-    htmlRecipe.value = await parseMarkdown(recipe.value)
-  } catch (e) {
-    htmlRecipe.value = homeLocales.prompt.error
-    error.value = true
-    console.error(e)
-  } finally {
-    loading.value = false
-  }
+  await generateRecipe({
+    has,
+    hasNot,
+    allergies,
+    message: message.value,
+    promptTexts: homeLocales.value.prompt,
+  })
 }
 </script>
 
 <template>
   <div class="home">
-    <h2 class="home__title">{{ homeLocales.title }}</h2>
-    <form class="home__form" @submit.prevent="generateRecipe">
-      <div v-if="ingredientCategories.length" class="home__categories">
+    <h2 v-if="homeLocales?.title" class="home__title">{{ homeLocales.title }}</h2>
+    <form class="home__form" @submit.prevent="handleSubmit">
+      <div v-if="hasCategories" class="home__categories">
         <article
           v-for="category in ingredientCategories"
           :key="category.id"
@@ -99,15 +87,21 @@ async function generateRecipe() {
               :key="item.id"
               v-bind="item"
               :model-value="selectedIngredients.has(item.name)"
-              @update:model-value="(checked) => toggleIngredient(item.name, checked)"
+              @update:model-value="
+                (checked) => toggleIngredient(category.type, item.name, checked)
+              "
             />
           </div>
         </article>
       </div>
-      <UiFormTheTextarea v-bind="homeLocales.textArea" v-model="message" />
-      <UiMainButton type="submit" :disabled="loading">{{
-        homeLocales.sendButton
-      }}</UiMainButton>
+      <UiFormTheTextarea
+        v-if="homeLocales?.textArea"
+        v-bind="homeLocales.textArea"
+        v-model="message"
+      />
+      <UiMainButton v-if="homeLocales?.sendButton" type="submit" :disabled="loading">
+        {{ homeLocales.sendButton }}
+      </UiMainButton>
     </form>
     <Transition name="fade-slide">
       <div
