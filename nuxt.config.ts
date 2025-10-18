@@ -12,6 +12,8 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/ui',
     '@nuxtjs/i18n',
+    '@pinia/nuxt',
+    '@nuxt/icon',
   ],
   css: [
     '@/assets/variables.css',

@@ -1,26 +1,48 @@
-import type { PAGES } from '@/constants/pages'
-import type { COMMON_COMPONENTS } from '@/constants/commonComponents'
-
-type PageType = (typeof PAGES)[number]
-type CommonComponentType = (typeof COMMON_COMPONENTS)[number]
+import { storeToRefs } from 'pinia'
+import { useLanguageStore } from '@/stores/language'
+import type { PageType } from '@/types/pages'
+import type { CommonComponentType } from '@/types/commonComponents'
 
 type TranslationsType = PageType | CommonComponentType
 
 const LOCALES_BASE_PATH = 'locales'
-const LANGUAGE = 'es'
 
 /**
- * Loads localized data for a page or common component.
+ * Reactive loader for localized JSON data.
  *
- * @template T - The expected type of the JSON data.
- * @param translations - The name of the JSON file to load (without extension).
- * @returns An object containing the typed data.
+ * @template T - Expected type of the JSON data.
+ * @param translations - Name of the JSON file to load (without extension).
+ * @returns A reactive ref containing the typed data.
  */
-export async function useLocales<T>(translations: TranslationsType) {
-  const localeModule: { default: T } = await import(
-    `@/../${LOCALES_BASE_PATH}/${LANGUAGE}/${translations}.json`
+export function useLocales<T>(translations: TranslationsType) {
+  let locale
+  try {
+    locale = useI18n().locale
+  } catch {
+    // Ignored on purpose
+  }
+
+  if (!locale) {
+    const { language } = storeToRefs(useLanguageStore())
+    locale = language
+  }
+
+  const data = ref<T>({} as T)
+
+  const loadLocales = async () => {
+    const localeModule: { default: T } = await import(
+      `@/../${LOCALES_BASE_PATH}/${locale.value}/${translations}.json`
+    )
+    data.value = localeModule.default
+  }
+
+  watch(
+    locale,
+    () => {
+      loadLocales()
+    },
+    { immediate: true },
   )
-  const data = localeModule.default
 
   return { data }
 }

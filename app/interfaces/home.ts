@@ -1,3 +1,5 @@
+import type { IngredientCategoryType } from '@/types/home'
+
 export interface BaseField {
   id: number | string
   name: string
@@ -12,7 +14,7 @@ export interface BaseField {
 
 export interface Category {
   id: number
-  title: string
+  title: IngredientCategoryType
   type?: string
   ingredients: BaseField[]
 }
