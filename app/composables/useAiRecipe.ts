@@ -24,13 +24,8 @@ export function useAiRecipe() {
 
   const { parseMarkdown } = useSanitizedMarkdown()
 
-  async function generateRecipe({
-    has,
-    hasNot,
-    allergies,
-    message,
-    promptTexts,
-  }: PromptInputs) {
+  async function generateRecipe(payload: PromptInputs) {
+    const { has, hasNot, message, promptTexts } = payload
     const hasMessage = message.trim().length > 0
     const hasSelection = has.length > 0 || hasNot.length > 0
 
@@ -41,20 +36,22 @@ export function useAiRecipe() {
     }
 
     loading.value = true
+    error.value = false
+    recipe.value = ''
     htmlRecipe.value = promptTexts.loading
 
-    const prompt = `${promptTexts.has} ${has.join(', ')}.\n${promptTexts.hasNot} ${hasNot.join(', ')}.\n${
-      allergies.length ? promptTexts.allergies : ''
-    } ${allergies.join(', ')}.\n${hasMessage ? promptTexts.message : ''} ${message}`
-
     try {
-      const response = await window.puter.ai.chat(prompt)
-      recipe.value = response.message.content
+      const response = await $fetch<{ content: string }>('/api/recipe', {
+        method: 'POST',
+        body: payload,
+      })
+
+      recipe.value = response.content
       htmlRecipe.value = await parseMarkdown(recipe.value)
     } catch (e) {
+      console.error(e)
       htmlRecipe.value = promptTexts.error
       error.value = true
-      console.error(e)
     } finally {
       loading.value = false
     }
