@@ -4,7 +4,9 @@ import i18nConfig from './config/i18n'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-
+  runtimeConfig: {
+    openrouterKey: process.env.OPENROUTER_API_KEY,
+  },
   modules: [
     '@nuxt/eslint',
     '@nuxt/image',
@@ -36,11 +38,6 @@ export default defineNuxtConfig({
       useCookie: true,
       fallbackLocale: 'es',
       redirectOn: 'root',
-    },
-  },
-  app: {
-    head: {
-      script: [{ src: 'https://js.puter.com/v2/', defer: true }],
     },
   },
 })

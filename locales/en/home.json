@@ -283,34 +283,27 @@
         },
         {
           "id": 2,
-          "name": "water",
-          "label": "Water",
-          "ariaLabel": "Liquid base: Water",
-          "disabled": false
-        },
-        {
-          "id": 3,
           "name": "broth",
           "label": "Broth",
           "ariaLabel": "Liquid base: Broth",
           "disabled": false
         },
         {
-          "id": 4,
+          "id": 3,
           "name": "cream",
           "label": "Cream",
           "ariaLabel": "Liquid base: Cream",
           "disabled": false
         },
         {
-          "id": 5,
+          "id": 4,
           "name": "yogurt",
           "label": "Yogurt",
           "ariaLabel": "Liquid base: Yogurt",
           "disabled": false
         },
         {
-          "id": 6,
+          "id": 5,
           "name": "soy sauce",
           "label": "Soy Sauce",
           "ariaLabel": "Liquid base: Soy Sauce",
@@ -381,7 +374,7 @@
     "message": "I'm craving something like this:",
     "allergies": "Avoid ingredients that cause allergies:",
     "loading": "We're preparing your recipe.",
-    "error": "Error generating the recipe.",
+    "error": "We couldn't generate your recipe at the moment. Please try again later.",
     "validation": "Please select at least one ingredient or write something."
   },
   "sendButton": "Request recipe"

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { BaseField, Home } from '@/interfaces/home'
-import type { IngredientCategoryType } from '~/types/home'
+import type { IngredientCategoryType } from '@/types/home'
 
 const { data: homeLocales } = useLocales<Home>('home')
 
@@ -34,11 +34,16 @@ function toggleIngredient(type: IngredientCategoryType, name: string, checked?: 
 }
 
 function getIngredientSummary() {
-  const allKeys = ingredientCategories.value.flatMap((category) =>
-    category.ingredients.map((item) => getIngredientKey(category.type, item.name)),
+  const allKeys = ingredientCategories.value
+    .filter((cat) => cat.type !== 'allergy')
+    .flatMap((category) =>
+      category.ingredients.map((item) => getIngredientKey(category.type, item.name)),
+    )
+
+  const has = Array.from(selectedIngredients.value).filter(
+    (key) => !key.startsWith('allergy:'),
   )
 
-  const has = Array.from(selectedIngredients.value)
   const hasNot = allKeys.filter((key) => !selectedIngredients.value.has(key))
 
   return {
@@ -68,11 +73,18 @@ async function handleSubmit() {
     promptTexts: homeLocales.value.prompt,
   })
 }
+
+const isFormInvalid = computed(() => {
+  const noIngredients = selectedIngredients.value.size === 0
+  const noMessage = message.value.trim().length === 0
+
+  return noIngredients && noMessage
+})
 </script>
 
 <template>
-  <div class="home">
-    <h2 v-if="homeLocales?.title" class="home__title">{{ homeLocales.title }}</h2>
+  <div v-if="homeLocales" class="home">
+    <h2 v-if="homeLocales.title" class="home__title">{{ homeLocales.title }}</h2>
     <form class="home__form" @submit.prevent="handleSubmit">
       <div v-if="hasCategories" class="home__categories">
         <article
@@ -86,7 +98,9 @@ async function handleSubmit() {
               v-for="item in category.ingredients"
               :key="item.id"
               v-bind="item"
-              :model-value="selectedIngredients.has(item.name)"
+              :model-value="
+                selectedIngredients.has(getIngredientKey(category.type, item.name))
+              "
               @update:model-value="
                 (checked) => toggleIngredient(category.type, item.name, checked)
               "
@@ -95,11 +109,15 @@ async function handleSubmit() {
         </article>
       </div>
       <UiFormTheTextarea
-        v-if="homeLocales?.textArea"
+        v-if="homeLocales.textArea"
         v-bind="homeLocales.textArea"
         v-model="message"
       />
-      <UiMainButton v-if="homeLocales?.sendButton" type="submit" :disabled="loading">
+      <UiMainButton
+        v-if="homeLocales.sendButton"
+        type="submit"
+        :disabled="loading || isFormInvalid"
+      >
         {{ homeLocales.sendButton }}
       </UiMainButton>
     </form>
@@ -133,7 +151,15 @@ async function handleSubmit() {
   }
 
   &__categories {
-    @include flex($align: baseline, $wrap: wrap, $gap: 4rem);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    @include responsive() {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include responsive(40rem) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   &__category {
@@ -143,7 +169,10 @@ async function handleSubmit() {
   }
 
   &__ingredients {
-    @include flex($wrap: wrap, $gap: 2rem);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: flex-start;
+    gap: 1.5rem 2rem;
   }
 
   &__recipe {
