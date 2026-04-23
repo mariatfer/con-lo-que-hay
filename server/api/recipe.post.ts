@@ -9,7 +9,22 @@ ${body.allergies.length ? body.promptTexts.allergies : ''} ${body.allergies.join
 ${body.message.trim().length ? body.promptTexts.message : ''} ${body.message}
   `.trim()
   console.log('Prompt sent to API:', prompt)
-  const MODELS = ['google/gemma-4-31b-it:free']
+  const MODELS = [
+    'google/gemma-4-31b-it:free',
+    'google/gemma-4-26b-a4b-it:free',
+    'meta-llama/llama-3.3-70b-instruct:free',
+    'meta-llama/llama-3.2-3b-instruct:free',
+    'tencent/hy3-preview:free',
+    'nvidia/nemotron-3-super-120b-a12b:free',
+    'openai/gpt-oss-120b:free',
+    'openai/gpt-oss-20b:free',
+    'google/gemma-3n-e2b-it:free',
+    'google/gemma-3n-e4b-it:free',
+    'google/gemma-3-4b-it:free',
+    'google/gemma-3-12b-it:free',
+    'google/gemma-3-27b-it:free',
+    'nousresearch/hermes-3-llama-3.1-405b:free',
+  ]
 
   async function callWithFallback(prompt: string, apiKey: string): Promise<string> {
     for (const model of MODELS) {
