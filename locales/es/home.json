@@ -381,7 +381,7 @@
     "message": "Me apetece algo así:",
     "allergies": "Evita ingredientes que causan alergia:",
     "loading": "Estamos preparando tu receta.",
-    "error": "Error al generar la receta.",
+    "error": "No hemos podido generar tu receta en este momento. Inténtalo de nuevo más tarde, por favor.",
     "validation": "Por favor, selecciona al menos un ingrediente o escribe algo."
   },
   "sendButton": "Pedir receta"
