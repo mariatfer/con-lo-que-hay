@@ -38,7 +38,7 @@ const modelValue = defineModel<boolean>()
           <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
         </svg>
       </span>
-      <span>{{ label }}</span>
+      <span class="field__text">{{ label }}</span>
     </label>
   </div>
 </template>
@@ -96,6 +96,10 @@ const modelValue = defineModel<boolean>()
     &:last-child {
       padding-left: 0.5rem;
     }
+  }
+
+  &__text {
+    text-align: left;
   }
 
   &__svg {
