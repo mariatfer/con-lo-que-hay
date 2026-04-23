@@ -1,14 +1,25 @@
+function clean(list: string[]) {
+  return list.map((item) => {
+    const parts = item.split(':')
+    return parts.length > 1 ? parts[1] : parts[0]
+  })
+}
+
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
   const config = useRuntimeConfig()
 
+  const cleanHas = clean(body.has)
+  const cleanHasNot = clean(body.hasNot)
+  const cleanAllergies = clean(body.allergies)
+
   const prompt = `
-${body.promptTexts.has} ${body.has.join(', ')}.
-${body.promptTexts.hasNot} ${body.hasNot.join(', ')}.
-${body.allergies.length ? body.promptTexts.allergies : ''} ${body.allergies.join(', ')}.
+${body.promptTexts.has} ${cleanHas.join(', ')}.
+${body.promptTexts.hasNot} ${cleanHasNot.join(', ')}.
+${cleanAllergies.length ? `${body.promptTexts.allergies} ${cleanAllergies.join(', ')}.` : ''}
 ${body.message.trim().length ? body.promptTexts.message : ''} ${body.message}
-  `.trim()
-  console.log('Prompt sent to API:', prompt)
+`.trim()
+
   const MODELS = [
     'google/gemma-4-31b-it:free',
     'google/gemma-4-26b-a4b-it:free',
